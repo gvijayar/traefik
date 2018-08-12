@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: wildcardcheese
+  annotations:
+    traefik.frontend.priority: "1"
+spec:
+  rules:
+  - host: cheeses.cluster.pks.cfrocket.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: stilton
+          servicePort: http
